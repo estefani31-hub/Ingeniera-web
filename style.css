@@ -22,10 +22,21 @@ body{
   background-position: center;
   position: relative;
 }
+
+/* overlay: mantener efecto visual, pero no bloquear clicks y debajo del contenido */
 #view-1 .overlay{
-  position:absolute; inset:0;
+  position:absolute;
+  inset:0;
   background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(11,11,20,0.7));
   backdrop-filter: blur(4px);
+  z-index: 0;                 /* que quede detrás del contenido */
+  pointer-events: none;      /* importante: deja pasar los clicks */
+}
+
+/* Asegurarnos que el content esté por encima */
+#view-1 .content{
+  position: relative;
+  z-index: 2;
 }
 
 /* portrait */
